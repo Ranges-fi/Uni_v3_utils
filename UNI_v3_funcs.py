@@ -10,12 +10,10 @@ Created on Mon Jun 14 18:53:09 2021
 '''liquitidymath'''
 '''Python library to emulate the calculations done in liquiditymath.sol of UNI_V3 peryphery contract'''
 
-#sqrtP: format X96 = int(1.0001**(tick/2)*(2**96))
-#liquidity: int
-#sqrtA = price for lower tick
-#sqrtB = price for upper tick
+
 '''get_amounts function'''
 #Use 'get_amounts' function to calculate amounts as a function of liquitidy and price range
+
 def get_amount0(sqrtA,sqrtB,liquidity,decimals):
     
     if (sqrtA > sqrtB):
@@ -59,6 +57,7 @@ def get_amounts(tick,tickA,tickB,liquidity,decimal0,decimal1):
         amount1=get_amount1(sqrtA,sqrtB,liquidity,decimal1)
         return 0,amount1
 
+    
 '''get token amounts relation'''
 #Use this formula to calculate amount of t0 based on amount of t1 (required before calculate liquidity)
 #relation = t1/t0      
@@ -74,7 +73,6 @@ def amounts_relation (tick,tickA,tickB,decimals0,decimals1):
 
     relation=(sqrt-sqrtA)/((1/sqrt)-(1/sqrtB))     
     return relation       
-
 
 
 '''get_liquidity function'''
